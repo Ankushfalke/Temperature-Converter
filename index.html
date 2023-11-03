@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #result {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        input {
+            padding: 20px;
+            width: 200px;
+            border-radius: 10px;
+
+        }
+
+        select {
+            padding: 10px;
+        }
+
+        button {
+            padding: 10px;
+            border-radius: 15px;
+        }
+
+        .container {
+            padding: 30px;
+            background-color: aqua;
+            height: 300px;
+            width: 500px;
+            margin-left: 31%;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Temperature Converter</h1>
+        <input type="number" id="temperature" placeholder="Enter temperature" step="0.01">
+        <div>
+            <br>
+            <select id="unit">
+                <option value="celsius">Celsius</option>
+                <option value="fahrenheit">Fahrenheit</option>
+            </select>
+        </div>
+        <br>
+        <button onclick="convertTemperature()">Convert</button>
+        <div id="result"></div>
+    </div>
+    
+
+    <script>
+        function convertTemperature() {
+            const temperatureInput = document.getElementById('temperature');
+            const unit = document.getElementById('unit').value;
+            const result = document.getElementById('result');
+            const temperature = parseFloat(temperatureInput.value);
+
+            if (unit === 'celsius') {
+                const fahrenheit = (temperature * 9 / 5) + 32;
+                result.textContent = `${temperature}°C is equal to ${fahrenheit}°F`;
+            } else if (unit === 'fahrenheit') {
+                const celsius = (temperature - 32) * 5 / 9;
+                result.textContent = `${temperature}°F is equal to ${celsius}°C`;
+            }
+        }
+    </script>
+</body>
+
+</html>
